@@ -12,7 +12,8 @@ DB_URI: str = os.environ.get("DB_URI", "mongodb+srv://sk4170730:Sumit@2003@clust
 LOG_CHANNEL: int = int(os.environ.get("LOG_CHANNEL", "-1002721017177"))
 AUTO_DELETE_MINUTES: int = int(os.environ.get("AUTO_DELETE", "30"))  # 30 minute default
 
-# Ye check hatado ya thik karo (baad mein error dega)
-# if not all([API_ID, API_HASH, BOT_TOKEN, DB_URI]):
-#     print("Required environment variables missing!")
-#     exit(1)
+# Agar koi bhi important variable nahi mila to seedha band
+for var in ["API_ID", "API_HASH", "BOT_TOKEN"]:
+    if not os.environ.get(var):
+        print(f"[ERROR] {var} not found in environment variables!")
+        exit(1)
