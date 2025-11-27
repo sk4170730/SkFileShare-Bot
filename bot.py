@@ -114,7 +114,8 @@ if __name__ == '__main__':
         loop.run_until_complete(start())
     except KeyboardInterrupt:
         logging.info('Service Stopped Bye 👋')
-
+import asyncio
+asyncio.get_event_loop().run_forever()
 
 # Don't Remove Credit Tg - @Dampi69
 # Ask Doubt on telegram @Dampi69
