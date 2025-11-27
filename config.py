@@ -1,14 +1,18 @@
 import os
 from typing import List
 
-API_ID = int(os.getenv("API_ID", "34254284")
-API_HASH = os.getenv("API_HASH", "746da987fd34ef8d8363c55f42d00aef")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "7985190165:AAHr4aHlPmJFOZSTr3xxYMzPgby88ke8W9E")
-ADMINS = [int(x) for x in os.getenv("ADMINS", "5181487987").split() if x.isdigit()]
-DB_URI = os.getenv("DB_URI", "mongodb+srv://sk4170730:Sumit@2003@cluster0.d0w1y7n.mongodb.net/?appName=Cluster0")
-LOG_CHANNEL = int(os.getenv("LOG_CHANNEL", "-1002721017177")
-AUTO_DELETE_MINUTES = int(os.getenv("AUTO_DELETE", "30"))
+# Ye sab environment variables se lo, hardcode mat karo
+API_ID: int = int(os.environ.get("API_ID", 34254284))          # sirf int() laga do
+API_HASH: str = os.environ.get("API_HASH", "7985190165:AAHr4aHlPmJFOZSTr3xxYMzPgby88ke8W9E")           # quotes hata do
+BOT_TOKEN: str = os.environ.get("BOT_TOKEN", " 746da987fd34ef8d8363c55f42d00aef")         # quotes hata do
 
-if not all([API_ID, API_HASH, BOT_TOKEN, DB_URI]):
-    print("Error: Required environment variables missing!")
-    exit(1)
+# Baaki sab aise hi thik hai, bas inko bhi env se lo
+OWNER_ID: int = int(os.environ.get("OWNER_ID", "5181487987"))  # default apna ID daal sakte ho test ke liye
+DB_URI: str = os.environ.get("DB_URI", "mongodb+srv://sk4170730:Sumit@2003@cluster0.d0w1y7n.mongodb.net/?appName=Cluster0")  # apna MongoDB URL daal dena
+LOG_CHANNEL: int = int(os.environ.get("LOG_CHANNEL", "-1002721017177"))
+AUTO_DELETE_MINUTES: int = int(os.environ.get("AUTO_DELETE", "30"))  # 30 minute default
+
+# Ye check hatado ya thik karo (baad mein error dega)
+# if not all([API_ID, API_HASH, BOT_TOKEN, DB_URI]):
+#     print("Required environment variables missing!")
+#     exit(1)
